@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "PT Sans";
+  src: url("/static/fonts/PT_Sans/PTSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("/static/fonts/PT_Sans/PTSans-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("/static/fonts/PT_Sans/PTSans-Italic.ttf");
+  font-style: italic;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  max-width: 390px;
+  margin: auto;
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+h1 { font-size: 36px; font-weight: 700; color: #0d47a1; }
+h2 { font-size: 24px; font-weight: 700; }
+
+small { font-size: 12px; font-style: italic; color: #6c757d; }
+
+a { color: #007bff; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #6c757d; padding: 4px; }

@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+{% block title %}Кабинет{% endblock %}
+{% block slider %}
+<p>
+  <img src="/static/img/assets/5.jpg" width="100%"><br>
+  <img src="/static/img/assets/6.jpg" width="100%"><br>
+  <img src="/static/img/assets/7.jpg" width="100%"><br>
+  <img src="/static/img/assets/8.jpg" width="100%">
+</p>
+{% endblock %}
+{% block body %}
+<h1>Мои заявки</h1>
+<a href="/new_record">Новая заявка</a>
+<table>
+<tr><th>№</th><th>Транспорт</th><th>Дата</th><th>Оплата</th><th>Статус</th></tr>
+{% for r in records %}
+<tr>
+  <td>{{ r.id }}</td><td>{{ r.transport }}</td><td>{{ r.start_date }}</td>
+  <td>{{ r.payment }}</td><td>{{ r.status }}</td>
+</tr>
+{% if r.status != "Новая" %}
+<tr><td colspan="5">
+  {% for rev in reviews %}{% if rev.record_id == r.id %}Отзыв: {{ rev.text }}{% endif %}{% endfor %}
+  <form method="post" action="/review/{{ r.id }}">
+    <input name="text"> <button>Отзыв</button>
+  </form>
+</td></tr>
+{% endif %}
+{% endfor %}
+</table>
+{% endblock %}

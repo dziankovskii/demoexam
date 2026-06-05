@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% block title %}Заявка{% endblock %}
+{% block body %}
+<h1>Заявка</h1>
+<form method="post" action="/new_record_validation">
+  Транспорт
+  <select name="transport">
+    <option>Автобус</option>
+    <option>Электробус</option>
+    <option>Трамвай</option>
+  </select><br>
+  Дата <input name="start_date" placeholder="ДД.ММ.ГГГГ"><br>
+  Оплата
+  <select name="payment">
+    <option>Наличными</option>
+    <option>Переводом по номеру телефона</option>
+  </select><br>
+  <button>Отправить</button>
+</form>
+{% endblock %}

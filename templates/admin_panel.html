@@ -1,0 +1,32 @@
+{% extends "_base.html" %}
+{% block title %}Админ{% endblock %}
+{% block body %}
+<h1>Админ</h1>
+<form method="get" action="/admin_panel">
+  <select name="status">
+    <option value="">Все</option>
+    <option value="Новая" {% if status == "Новая" %}selected{% endif %}>Новая</option>
+    <option value="Идет обучение" {% if status == "Идет обучение" %}selected{% endif %}>Идет обучение</option>
+    <option value="Обучение завершено" {% if status == "Обучение завершено" %}selected{% endif %}>Обучение завершено</option>
+  </select>
+  <button>Показать</button>
+</form>
+<table>
+<tr><th>№</th><th>Транспорт</th><th>Дата</th><th>Статус</th><th>Сменить</th></tr>
+{% for r in records %}
+<tr>
+  <td>{{ r.id }}</td><td>{{ r.transport }}</td><td>{{ r.start_date }}</td><td>{{ r.status }}</td>
+  <td>
+    <form method="post" action="/update/{{ r.id }}">
+      <select name="status">
+        <option {% if r.status == "Новая" %}selected{% endif %}>Новая</option>
+        <option {% if r.status == "Идет обучение" %}selected{% endif %}>Идет обучение</option>
+        <option {% if r.status == "Обучение завершено" %}selected{% endif %}>Обучение завершено</option>
+      </select>
+      <button>Сохранить</button>
+    </form>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

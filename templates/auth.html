@@ -1,0 +1,12 @@
+{% extends "_base.html" %}
+{% block title %}Вход{% endblock %}
+{% block body %}
+<h1>Вход</h1>
+<form method="post" action="/auth_validation">
+  Логин <input name="login"><br>
+  Пароль <input name="password" type="password"><br>
+  {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+  <button>Войти</button>
+</form>
+<a href="/registation">Еще не зарегистрированы? Регистрация</a>
+{% endblock %}

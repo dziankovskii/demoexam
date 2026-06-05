@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <p>
+    <a href="/auth">Вход</a> |
+    <a href="/registation">Регистрация</a> |
+    <a href="/record">Заявки</a> |
+    <a href="/new_record">Новая заявка</a> |
+    <a href="/admin_panel">Админ</a> |
+    <a href="/logout">Выход</a>
+  </p>
+  {% block body %}{% endblock %}
+  {% block slider %}{% endblock %}
+</body>
+</html>

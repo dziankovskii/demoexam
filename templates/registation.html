@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block body %}
+<h1>Регистрация</h1>
+<form method="post" action="/registation_validation">
+  Логин <input name="login"><br>
+  Пароль <input name="password" type="password"><br>
+  ФИО <input name="fio"><br>
+  Дата рождения <input name="birth_date" placeholder="ДД.ММ.ГГГГ"><br>
+  Телефон <input name="phone" placeholder="8(999)123-45-67"><br>
+  Email <input name="email"><br>
+  <small>Логин от 6 символов, пароль от 8</small><br>
+  {% for e in errors %}<p style="color:red">{{ e }}</p>{% endfor %}
+  <button>Зарегистрироваться</button>
+</form>
+{% endblock %}
