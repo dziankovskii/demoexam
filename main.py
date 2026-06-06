@@ -31,14 +31,14 @@ class RecordForm(SQLModel, table=True):
     transport: str
     start_date: str
     payment: str
-    user_id: int | None
+    user_id: int | None = Field(default=None, foreign_key="user.id")
     status: str = Field(default="Новая")
 
 
 class Review(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
-    user_id: int
-    record_id: int
+    user_id: int = Field(foreign_key="user.id")
+    record_id: int = Field(foreign_key="record.id")
     text: str
 
 
