@@ -1,12 +1,32 @@
 {% extends "_base.html" %}
 {% block title %}Кабинет{% endblock %}
 {% block slider %}
-<p>
-  <img src="/static/img/assets/5.jpg" width="100%"><br>
-  <img src="/static/img/assets/6.jpg" width="100%"><br>
-  <img src="/static/img/assets/7.jpg" width="100%"><br>
-  <img src="/static/img/assets/8.jpg" width="100%">
-</p>
+<style>
+  .slider input { display: none; }
+  .slider img { display: none; width: 100%; }
+  #s1:checked ~ .pics .i1,
+  #s2:checked ~ .pics .i2,
+  #s3:checked ~ .pics .i3,
+  #s4:checked ~ .pics .i4 { display: block; }
+</style>
+<div class="slider">
+  <input type="radio" name="s" id="s1" checked>
+  <input type="radio" name="s" id="s2">
+  <input type="radio" name="s" id="s3">
+  <input type="radio" name="s" id="s4">
+  <div class="pics">
+    <img class="i1" src="/static/img/assets/5.jpg" alt="1">
+    <img class="i2" src="/static/img/assets/6.jpg" alt="2">
+    <img class="i3" src="/static/img/assets/7.jpg" alt="3">
+    <img class="i4" src="/static/img/assets/8.jpg" alt="4">
+  </div>
+  <p>
+    <label for="s1">1</label>
+    <label for="s2">2</label>
+    <label for="s3">3</label>
+    <label for="s4">4</label>
+  </p>
+</div>
 {% endblock %}
 {% block body %}
 <h1>Мои заявки</h1>
